@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import type { MessageParam, Tool } from "@anthropic-ai/sdk/resources/messages";
 import type {
   ModelClient,
   ModelCompleteOptions,
@@ -27,9 +28,41 @@ export class AnthropicClient implements ModelClient {
   }
 
   async complete(
-    _messages: ModelMessage[],
-    _options: ModelCompleteOptions = {}
+    messages: ModelMessage[],
+    options: ModelCompleteOptions = {}
   ): Promise<ModelCompleteResult> {
-    throw new Error("AnthropicClient.complete is not implemented yet.");
+    const system = messages
+      .filter((message) => message.role === "system")
+      .map((message) => message.content)
+      .join("\n\n");
+
+    const anthropicMessages: MessageParam[] = messages
+      .filter((message) => message.role !== "system")
+      .map((message) => ({
+        role: message.role === "assistant" ? "assistant" : "user",
+        content:
+          message.role === "tool"
+            ? `Tool result:\n${message.content}`
+            : message.content
+      }));
+
+    const response = await this.client.messages.create({
+      model: this.model,
+      max_tokens: options.maxTokens ?? 1024,
+      temperature: options.temperature ?? 0,
+      system: system || undefined,
+      messages: anthropicMessages,
+      tools: options.tools as Tool[] | undefined
+    });
+
+    const text = response.content
+      .filter((block) => block.type === "text")
+      .map((block) => block.text)
+      .join("");
+
+    return {
+      text,
+      raw: response
+    };
   }
 }
