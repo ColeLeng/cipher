@@ -1,47 +1,153 @@
+<div align="center">
+
 # Cipher
 
-Keep sensitive data on your machine while still using a cloud LLM to analyze it.
+### Your sensitive data never leaves your machine.
+### Claude still does the analysis.
 
-Cipher is a Next.js app that puts a privacy boundary between your raw documents and a cloud model. A small local model strips identifying details before anything leaves your machine. Claude reasons over the sanitized version. Real names are restored locally before you see the response.
+[![Next.js 14](https://img.shields.io/badge/Next.js-14-000?logo=nextdotjs)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Anthropic Claude](https://img.shields.io/badge/Anthropic-Claude-d97757)](https://www.anthropic.com/)
+[![Ollama](https://img.shields.io/badge/Local-Ollama-000)](https://ollama.com/)
+[![Status](https://img.shields.io/badge/status-early%20scaffold-yellow)]()
 
-## Big picture
+</div>
 
-Two roles, one boundary.
+---
 
-- **LocalRole** (Ollama, runs on your machine). Sees the raw document. Generates redaction code and reviews any tool calls Claude wants to make.
-- **CloudRole** (Claude via the Anthropic SDK). Sees only the sanitized summary. Returns the recommendation.
+## The 60-second pitch
 
-The local role is the privacy gate. The cloud role does the heavy reasoning.
+You have a document with confidential client data. You want a frontier model to analyze it. You can't, in good conscience, paste it into a cloud LLM.
 
-## Flow
+Cipher is the privacy boundary in between.
 
-1. **Score sensitivity.** LocalRole scans the document and flags likely identifying fields.
-2. **Generate a transformer.** LocalRole writes Python that removes names, exact URLs, brands, and exact metrics while preserving the analytical signal.
-3. **Run the transformer in a sandbox.** Output is a sanitized summary plus an `entityMap` that stays on disk.
-4. **Cloud analysis.** Claude receives only the sanitized summary plus your stated intent and returns a recommendation.
-5. **Tool-risk review.** If Claude proposes a web search, LocalRole inspects the query first and rewrites or blocks anything that would leak protected strings.
-6. **Decipher.** The entityMap restores real names before the response is shown.
+A small local model writes redaction code, runs it on your raw document, and ships only the sanitized summary to Claude. When Claude responds, Cipher restores the real names locally before you see the answer. If Claude tries to run a web search that would leak a protected string, the local model rewrites or blocks the query before it ever leaves your machine.
 
-## How to use
+> **Two roles, one boundary.** The local role is the privacy gate. The cloud role does the heavy reasoning. Nothing identifying ever crosses.
+
+---
+
+## The pipeline
+
+```
+                  YOUR MACHINE                       │   THE CLOUD
+                                                     │
+   ┌──────────────────┐                              │
+   │  Raw document    │                              │
+   │  (clients, PII)  │                              │
+   └────────┬─────────┘                              │
+            ▼                                        │
+   ┌──────────────────┐                              │
+   │ 1. Score         │  LocalRole flags             │
+   │    sensitivity   │  identifying fields          │
+   └────────┬─────────┘                              │
+            ▼                                        │
+   ┌──────────────────┐                              │
+   │ 2. Generate      │  LocalRole writes Python     │
+   │    transformer   │  redact + preserve signal    │
+   └────────┬─────────┘                              │
+            ▼                                        │
+   ┌──────────────────┐                              │
+   │ 3. Sandbox run   │  Sanitized summary +         │
+   │                  │  entityMap (stays local)     │
+   └────────┬─────────┘                              │
+            │                                        │
+            │ ═══════ boundary ════════════════════▶ │   ┌──────────────┐
+            │                                        │   │ 4. Claude    │
+            │                                        │   │    reasons   │
+            │ ◀═══════════════════════════════════   │   └──────────────┘
+            ▼                                        │
+   ┌──────────────────┐                              │
+   │ 5. Tool-risk     │  LocalRole inspects any      │
+   │    review        │  web_search before it leaves │
+   └────────┬─────────┘                              │
+            ▼                                        │
+   ┌──────────────────┐                              │
+   │ 6. Decipher      │  entityMap restores          │
+   │                  │  real names locally          │
+   └────────┬─────────┘                              │
+            ▼                                        │
+       ╔══════════╗                                  │
+       ║   You    ║                                  │
+       ╚══════════╝                                  │
+```
+
+---
+
+## Why Cipher
+
+| Problem | What most teams do | What Cipher does |
+|---|---|---|
+| Document has PII | Manual redaction, copy-paste roulette | LocalRole writes a Python transformer per document, per intent |
+| Cloud LLM might leak via tool calls | Hope it doesn't | LocalRole reviews every search query before it leaves |
+| Sanitized output is useless | Live with it | entityMap round-trip restores real names client side |
+| Different docs need different redactions | One-size-fits-all regex | Transformer is generated for the analytical intent at hand |
+
+---
+
+## Two roles, one boundary
+
+|  | LocalRole | CloudRole |
+|---|---|---|
+| **Runtime** | Ollama, on your machine | Anthropic Claude, via API |
+| **Sees** | Raw document, entityMap, tool calls | Only the sanitized summary |
+| **Job** | Redact, gate, restore | Reason, recommend |
+| **Why this side** | Privacy. Cheap. Always on. | Frontier reasoning. |
+
+---
+
+## Quickstart
 
 ```bash
 cp .env.local.example .env.local
-# Set ANTHROPIC_API_KEY and OLLAMA_URL
+# ANTHROPIC_API_KEY=...
+# OLLAMA_URL=http://localhost:11434
+
 npm install
 npm run dev
 ```
 
-Open the app, paste a document, pick an intent, and click **Protect and analyze**. The right pane shows the sanitized summary, any searches Claude tried to run, and the final response with names restored locally.
+Open the app, paste a document, pick an intent, click **Protect and analyze**.
 
-## Layout
+The right pane shows three things:
 
-- `app/`: Next.js 14 App Router UI.
-- `lib/pipeline/`: orchestrator, cipher (transformer generation and run), decipher (response restoration), intercept (tool-risk review), score (sensitivity scoring).
-- `lib/models/`: `anthropic.ts`, `ollama.ts`, shared types.
-- `prompts/`: `cipher_codegen.md`, `tool_risk.md`, `strategy.md`.
-- `python/sandbox.py`: runs the generated transformer.
-- `eval/examples.jsonl`: evaluation fixtures.
+1. The sanitized summary that left your machine
+2. Any web searches Claude tried to run, and what Cipher rewrote them to
+3. The final response, with real names restored locally
+
+A complete audit trail stays on disk.
+
+---
+
+## What's inside
+
+```
+cipher/
+├── app/                  Next.js 14 App Router UI
+│   ├── page.tsx            Two-pane workspace
+│   └── api/run/            Streaming pipeline endpoint
+├── lib/
+│   ├── pipeline/
+│   │   ├── orchestrator.ts   Run loop + event stream
+│   │   ├── score.ts          Sensitivity scoring
+│   │   ├── cipher.ts         Transformer generation + run
+│   │   ├── intercept.ts      Tool-risk review
+│   │   └── decipher.ts       Entity restoration
+│   └── models/
+│       ├── anthropic.ts      Cloud role
+│       └── ollama.ts         Local role
+├── prompts/
+│   ├── cipher_codegen.md     Transformer authoring prompt
+│   ├── tool_risk.md          Search query review prompt
+│   └── strategy.md           Cloud reasoning prompt
+├── python/sandbox.py     Runs the generated transformer
+└── eval/examples.jsonl   Evaluation fixtures
+```
+
+---
 
 ## Status
 
-Early scaffold. Prompts and types are in place; pipeline modules currently throw "not implemented yet" and are wired for incremental fill-in.
+Early scaffold. The architecture, prompts, types, and UI shell are in place. The pipeline modules currently throw `not implemented yet` and are wired for incremental fill-in.
+
+Built with Next.js 14, TypeScript, the Anthropic SDK, Tailwind, and Ollama.
