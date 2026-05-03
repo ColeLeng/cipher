@@ -1,0 +1,120 @@
+{
+  "slug": "lumenfield",
+  "displayName": "Lumenfield",
+  "brandCategory": "Sustainable home fragrance and candle brand",
+  "deliverable": "Content visibility and citation strategy",
+  "entities": [
+    {
+      "token": "BRAND_001",
+      "real": "Lumenfield",
+      "variants": [
+        "Lumenfield",
+        "lumenfield",
+        "lumenfield.com"
+      ],
+      "label": "brand variants"
+    },
+    {
+      "token": "BRAND_LUMENFIELD",
+      "real": "Lumenfield",
+      "variants": [
+        "lumenfield.com",
+        "lumenfield candles",
+        "lumenfield diffuser",
+        "lumenfield gift set",
+        "lumenfield reviews"
+      ],
+      "label": "Brand Name and Variants"
+    },
+    {
+      "token": "PRODUCT_SCENTS",
+      "real": "Cedarwood Bergamot",
+      "variants": [
+        "Fig Oak",
+        "Linen Sage",
+        "Sandalwood Vetiver"
+      ],
+      "label": "Core Product Scents"
+    },
+    {
+      "token": "CERT_B CORP",
+      "real": "B-Corp",
+      "variants": [
+        "B-Corp certified",
+        "B Corp"
+      ],
+      "label": "Certifications and Trust Signals"
+    },
+    {
+      "token": "CERT_1PCT",
+      "real": "1% for the Planet",
+      "variants": [
+        "1% for the Planet member"
+      ],
+      "label": "Environmental Affiliations"
+    },
+    {
+      "token": "ATTRIBUTE_CLEAN",
+      "real": "Non-toxic",
+      "variants": [
+        "phthalate-free",
+        "soy wax",
+        "clean burning",
+        "asthma-safe"
+      ],
+      "label": "Product Attributes and Claims"
+    },
+    {
+      "token": "GEO_PORTLAND",
+      "real": "Portland, Oregon",
+      "variants": [
+        "Portland",
+        "Portland, Oregon",
+        "Pacific Northwest"
+      ],
+      "label": "Geographic Origin"
+    }
+  ],
+  "replacements": [
+    {
+      "label": "Competitors",
+      "terms": [
+        "P.F. Candle Co.",
+        "Grow Fragrance",
+        "Boy Smells",
+        "Diptyque",
+        "Boy Smells",
+        "Apotheke",
+        "Brooklyn Candle Studio",
+        "Otherland",
+        "Maison Louis Marie",
+        "Grow Fragrance",
+        "Yankee Candle"
+      ],
+      "replacement": "Category leader or established brand"
+    }
+  ],
+  "textBuckets": [
+    {
+      "pattern": "(\\d{4})",
+      "replacement": "[YEAR]",
+      "flags": "gi"
+    },
+    {
+      "pattern": "([$]\\s*\\d{1,3}(?:[\\.,]\\d{3})*(?:\\s*-\\s*\\d{1,3})?)",
+      "replacement": "[PRICE_RANGE]",
+      "flags": "gi"
+    },
+    {
+      "pattern": "([\\d\\.]+%?)",
+      "replacement": "[PERCENTAGE]",
+      "flags": "gi"
+    },
+    {
+      "pattern": "([A-Z]{2,4}\\s*-\\s*[A-Z]{2,4})",
+      "replacement": "[PRODUCT_CODE]",
+      "flags": "gi"
+    }
+  ],
+  "heroToolQuery": "sustainable home fragrance brands b corp"
+}

@@ -1,0 +1,187 @@
+{
+  "brand": "Velora",
+  "tracking_period": "2026-04-01 to 2026-04-30",
+  "platforms_tracked": ["chatgpt", "claude", "perplexity", "google_aio", "gemini"],
+  "summary_metrics": {
+    "total_prompts_tracked": 142,
+    "brand_mention_rate": 0.184,
+    "brand_citation_rate": 0.092,
+    "share_of_voice_category": 0.041,
+    "category_competitors_tracked": ["Azazie", "JJ's House", "BHLDN", "Lulus", "Birdy Grey", "Dessy", "Revelry", "Floravere"]
+  },
+  "tracked_prompts": [
+    {
+      "prompt": "best affordable custom wedding dresses online",
+      "category": "high_intent_purchase",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["Azazie", "BHLDN", "Anomalie"],
+          "citation_urls": []
+        },
+        "claude": {
+          "velora_mentioned": true,
+          "position": 4,
+          "snippet_about_velora": "Velora offers custom-made wedding dresses with Turkish craftsmanship at mid-tier price points, popular for boho and lace styles.",
+          "competitors_mentioned": ["Azazie", "BHLDN", "Floravere"],
+          "citation_urls": ["velora.com/collections/wedding-dresses"]
+        },
+        "perplexity": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["Azazie", "BHLDN", "JJ's House", "Anomalie"],
+          "citation_urls": []
+        },
+        "google_aio": {
+          "velora_mentioned": true,
+          "position": 5,
+          "snippet_about_velora": "Velora is known for custom long-sleeve wedding dresses shipped from Turkey, with reviews mentioning quality and fit accuracy.",
+          "competitors_mentioned": ["Azazie", "JJ's House", "BHLDN"],
+          "citation_urls": ["velora.com/blog/turkish-craftsmanship-velora"]
+        }
+      }
+    },
+    {
+      "prompt": "is velora legit",
+      "category": "brand_trust",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora is a legitimate online retailer based in Turkey, offering custom-made formal dresses. Customer reviews are mixed, with positive feedback on craftsmanship and some complaints about shipping times to certain regions.",
+          "competitors_mentioned": [],
+          "citation_urls": ["velora.com/reviews", "trustpilot.com/review/velora.com", "reddit.com/r/promdresses"]
+        },
+        "claude": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora is a legitimate online dress retailer with custom-made offerings. Reviews indicate quality is generally good but shipping can be slow.",
+          "citation_urls": ["velora.com", "trustpilot.com/review/velora.com"]
+        },
+        "perplexity": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora.com is a legitimate Turkey-based formalwear brand. Reviews on Trustpilot average 4.1 stars with feedback noting quality construction and occasional sizing issues.",
+          "citation_urls": ["trustpilot.com/review/velora.com", "reddit.com/r/promdresses/velora"]
+        }
+      }
+    },
+    {
+      "prompt": "best long sleeve prom dresses 2025",
+      "category": "high_intent_category",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["JJ's House", "Lulus", "Sherri Hill"],
+          "citation_urls": []
+        },
+        "claude": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["JJ's House", "Lulus", "Promgirl"],
+          "citation_urls": []
+        },
+        "perplexity": {
+          "velora_mentioned": true,
+          "position": 7,
+          "snippet_about_velora": "Velora offers a selection of long-sleeve prom dresses in chiffon and lace, with custom sizing available.",
+          "competitors_mentioned": ["JJ's House", "Lulus", "Sherri Hill"],
+          "citation_urls": ["velora.com/collections/prom-dresses-2025"]
+        },
+        "google_aio": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["JJ's House", "Lulus", "Macy's"],
+          "citation_urls": []
+        }
+      }
+    },
+    {
+      "prompt": "where is velora dress company located",
+      "category": "brand_specific",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora is headquartered in Istanbul, Turkey, with manufacturing operations in the same region. The company ships internationally to North America, Europe, and parts of Asia including India.",
+          "citation_urls": ["velora.com/about-us"]
+        },
+        "perplexity": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora is based in Turkey and operates a direct-to-consumer model with localized sites for German, French, and Indian markets.",
+          "citation_urls": ["velora.com/about-us", "velora.de"]
+        }
+      }
+    },
+    {
+      "prompt": "affordable bridesmaid dresses with custom sizing",
+      "category": "high_intent_category",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["Azazie", "Birdy Grey", "Revelry", "Dessy"]
+        },
+        "claude": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["Azazie", "Birdy Grey", "Revelry"]
+        },
+        "perplexity": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["Azazie", "Birdy Grey", "Revelry", "BHLDN"]
+        }
+      }
+    },
+    {
+      "prompt": "mother of the bride dresses plus size with sleeves",
+      "category": "high_intent_category",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["JJ's House", "Macy's", "Nordstrom", "David's Bridal"]
+        },
+        "claude": {
+          "velora_mentioned": true,
+          "position": 6,
+          "snippet_about_velora": "Velora offers plus-size mother-of-the-bride dresses with sleeve options including long sleeve chiffon and lace styles, with custom sizing available.",
+          "citation_urls": ["velora.com/collections/plus-size-formal", "velora.com/collections/mother-of-the-bride"]
+        },
+        "google_aio": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["JJ's House", "Macy's", "David's Bridal"]
+        }
+      }
+    },
+    {
+      "prompt": "turkish wedding dress brands online",
+      "category": "category_geographic",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": true,
+          "position": 2,
+          "snippet_about_velora": "Velora is one of the more visible Turkey-based DTC bridal brands, specializing in custom-made wedding dresses with European-influenced design.",
+          "competitors_mentioned": ["Pronovias (Spain)", "Atelier Pronovias"]
+        },
+        "perplexity": {
+          "velora_mentioned": true,
+          "position": 1,
+          "snippet_about_velora": "Velora leads the new wave of Turkish online bridal brands offering custom sizing and direct-to-consumer pricing.",
+          "citation_urls": ["velora.com/blog/turkish-craftsmanship-velora"]
+        }
+      }
+    },
+    {
+      "prompt": "best boho wedding dress with lace sleeves",
+      "category": "product_specific",
+      "platform_results": {
+        "chatgpt": {
+          "velora_mentioned": false,
+          "competitors_mentioned": ["BHLDN", "Grace Loves Lace", "Rue de Seine"]
+        },
+        "claude": {
+          "velora_mentioned": true,
+          "position": 5,
+          "snippet_about_velora": "Velora's Aubrey gown is a popular boho lace wedding dress with long sleeves, frequently mentioned in reviews for its detailed lace work.",
+          "citation_urls": ["velora.com/products/aubrey-boho-lace-wedding-dress"]
+        }
+      }
+    }
+  ]
+}

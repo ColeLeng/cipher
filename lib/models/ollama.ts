@@ -24,9 +24,55 @@ export class OllamaClient implements ModelClient {
   }
 
   async complete(
-    _messages: ModelMessage[],
-    _options: ModelCompleteOptions = {}
+    messages: ModelMessage[],
+    options: ModelCompleteOptions = {}
   ): Promise<ModelCompleteResult> {
-    throw new Error("OllamaClient is a Phase 2 stub.");
+    const response = await fetch(new URL("/api/chat", this.url), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: this.model,
+        messages: messages.map((message) => ({
+          role: message.role === "tool" ? "user" : message.role,
+          content:
+            message.role === "tool"
+              ? `Tool result:\n${message.content}`
+              : message.content
+        })),
+        stream: false,
+        options: {
+          temperature: options.temperature ?? 0,
+          num_predict: options.maxTokens
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `Ollama request failed (${response.status}): ${errorText}`
+      );
+    }
+
+    const raw = (await response.json()) as {
+      message?: { content?: unknown };
+      error?: unknown;
+    };
+
+    if (typeof raw.error === "string") {
+      throw new Error(`Ollama error: ${raw.error}`);
+    }
+
+    const text = raw.message?.content;
+    if (typeof text !== "string") {
+      throw new Error("Ollama response did not include message.content.");
+    }
+
+    return {
+      text,
+      raw
+    };
   }
 }

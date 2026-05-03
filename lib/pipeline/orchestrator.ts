@@ -19,7 +19,7 @@ export type ToolRewrite = {
   original: string;
   rewritten: string;
   reason: string;
-  risk: "low" | "medium" | "high";
+  risk: "low" | "medium" | "high" | "critical";
   blocked: boolean;
 };
 

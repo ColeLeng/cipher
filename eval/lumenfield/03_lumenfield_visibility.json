@@ -1,0 +1,183 @@
+{
+  "brand": "Lumenfield",
+  "tracking_period": "2026-04-01 to 2026-04-30",
+  "platforms_tracked": ["chatgpt", "claude", "perplexity", "google_aio", "gemini"],
+  "summary_metrics": {
+    "total_prompts_tracked": 98,
+    "brand_mention_rate": 0.071,
+    "brand_citation_rate": 0.041,
+    "share_of_voice_category": 0.018,
+    "category_competitors_tracked": ["Grow Fragrance", "Boy Smells", "P.F. Candle Co.", "Otherland", "Brooklyn Candle Studio", "Apotheke", "Maison Louis Marie", "Homecourt", "Nette"]
+  },
+  "tracked_prompts": [
+    {
+      "prompt": "best non toxic candle brands 2025",
+      "category": "high_intent_category",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Grow Fragrance", "P.F. Candle Co.", "Brooklyn Candle Studio", "Heretic"],
+          "citation_urls": []
+        },
+        "claude": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Grow Fragrance", "P.F. Candle Co.", "Boy Smells", "Apotheke"],
+          "citation_urls": []
+        },
+        "perplexity": {
+          "brand_mentioned": true,
+          "position": 8,
+          "snippet_about_brand": "Lumenfield is a Portland-based small-batch candle maker focused on phthalate-free soy wax and refillable formats.",
+          "competitors_mentioned": ["Grow Fragrance", "P.F. Candle Co.", "Brooklyn Candle Studio"],
+          "citation_urls": ["lumenfield.com/about-our-impact"]
+        },
+        "google_aio": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Grow Fragrance", "P.F. Candle Co.", "Heretic"],
+          "citation_urls": []
+        }
+      }
+    },
+    {
+      "prompt": "sustainable home fragrance brands b corp",
+      "category": "high_intent_values",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": true,
+          "position": 4,
+          "snippet_about_brand": "Lumenfield is a B-Corp certified candle and home fragrance brand based in Portland, Oregon, known for refillable ceramic vessels and 1% for the Planet membership.",
+          "competitors_mentioned": ["Grow Fragrance", "Brooklyn Candle Studio"],
+          "citation_urls": ["lumenfield.com/about-our-impact", "lumenfield.com/blog/our-b-corp-journey"]
+        },
+        "claude": {
+          "brand_mentioned": true,
+          "position": 5,
+          "snippet_about_brand": "Lumenfield, a small-batch maker from Portland, holds B-Corp certification and contributes 1% of revenue to environmental causes.",
+          "citation_urls": ["lumenfield.com/about-our-impact"]
+        },
+        "perplexity": {
+          "brand_mentioned": true,
+          "position": 3,
+          "snippet_about_brand": "Lumenfield is a certified B-Corp making refillable soy candles in Portland, Oregon. The company has been featured in 1 Hotels and named to Architectural Digest's clean home picks.",
+          "citation_urls": ["lumenfield.com/about-our-impact", "lumenfield.com/blog/featured-in-1-hotels"]
+        }
+      }
+    },
+    {
+      "prompt": "best soy wax candles for sensitive nose",
+      "category": "high_intent_problem",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["P.F. Candle Co.", "Heretic", "Boy Smells"]
+        },
+        "claude": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["P.F. Candle Co.", "Brooklyn Candle Studio", "Apotheke"]
+        },
+        "perplexity": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["P.F. Candle Co.", "Heretic", "Grow Fragrance", "Apotheke"]
+        }
+      }
+    },
+    {
+      "prompt": "candles like le labo but more affordable",
+      "category": "comparison_aspirational",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Boy Smells", "Maison Louis Marie", "Otherland", "Apotheke"]
+        },
+        "claude": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Boy Smells", "Maison Louis Marie", "P.F. Candle Co.", "Otherland"]
+        },
+        "perplexity": {
+          "brand_mentioned": true,
+          "position": 6,
+          "snippet_about_brand": "For those seeking Le Labo-adjacent profiles at lower price points, Lumenfield's Sandalwood Vetiver and Cedarwood Bergamot scents offer similar woodsy depth at roughly half the cost.",
+          "competitors_mentioned": ["Boy Smells", "Maison Louis Marie", "Otherland"],
+          "citation_urls": ["lumenfield.com/products/sandalwood-vetiver-candle"]
+        }
+      }
+    },
+    {
+      "prompt": "refillable candle brands sustainable packaging",
+      "category": "high_intent_format",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Keap", "Grow Fragrance", "Brooklyn Candle Studio"]
+        },
+        "claude": {
+          "brand_mentioned": true,
+          "position": 4,
+          "snippet_about_brand": "Lumenfield offers a refill program for its ceramic candle vessels, with refills priced at roughly 60% of the full candle and shipped in compostable packaging.",
+          "citation_urls": ["lumenfield.com/collections/refills", "lumenfield.com/blog/sustainable-packaging-deep-dive"]
+        },
+        "perplexity": {
+          "brand_mentioned": true,
+          "position": 2,
+          "snippet_about_brand": "Lumenfield's refill program is among the more developed in the small-batch candle category, with dedicated refill SKUs for each scent.",
+          "citation_urls": ["lumenfield.com/collections/refills"]
+        }
+      }
+    },
+    {
+      "prompt": "small batch candle makers portland oregon",
+      "category": "geographic_specific",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": true,
+          "position": 2,
+          "snippet_about_brand": "Lumenfield is among the more visible small-batch candle makers based in Portland, Oregon, with B-Corp certification and a refillable format.",
+          "competitors_mentioned": ["P.F. Candle Co. (Los Angeles)", "Pendleton Wool"],
+          "citation_urls": ["lumenfield.com/blog/portland-makers-our-story"]
+        },
+        "perplexity": {
+          "brand_mentioned": true,
+          "position": 1,
+          "snippet_about_brand": "Lumenfield, founded in Portland in 2020, has grown into one of the city's most recognized clean-fragrance brands, with retail placement at 1 Hotels and Rejuvenation.",
+          "citation_urls": ["lumenfield.com/blog/portland-makers-our-story", "lumenfield.com/blog/co-op-portland-makers"]
+        }
+      }
+    },
+    {
+      "prompt": "best candle brands 2025 wirecutter recommended",
+      "category": "high_intent_endorsement",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["P.F. Candle Co.", "Boy Smells", "Diptyque"]
+        },
+        "claude": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["P.F. Candle Co.", "Boy Smells", "Diptyque", "Yankee Candle"]
+        },
+        "google_aio": {
+          "brand_mentioned": true,
+          "position": 7,
+          "snippet_about_brand": "Lumenfield was named a Wirecutter pick in 2025 for its clean-burning soy wax formulation and refill-friendly packaging design.",
+          "citation_urls": ["lumenfield.com/blog/wirecutter-pick-2025"]
+        }
+      }
+    },
+    {
+      "prompt": "candle brand that gives back environment",
+      "category": "values_specific",
+      "platform_results": {
+        "chatgpt": {
+          "brand_mentioned": true,
+          "position": 6,
+          "snippet_about_brand": "Lumenfield is a 1% for the Planet member and B-Corp, donating a portion of revenue to Pacific Northwest environmental restoration nonprofits.",
+          "citation_urls": ["lumenfield.com/blog/1-percent-for-planet-impact"]
+        },
+        "claude": {
+          "brand_mentioned": false,
+          "competitors_mentioned": ["Grow Fragrance", "Patagonia", "Brooklyn Candle Studio"]
+        }
+      }
+    }
+  ]
+}
